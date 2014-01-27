@@ -15,7 +15,7 @@
         <%
             out.println("<h1 id='greetingText'>" +
                 request.getAttribute("welcomeUser")+
-                    "</h1>");
+                    "</h1><br/><br/><a href='welcome.html'>Do It Again</a>");
                     
         %>
     </body>

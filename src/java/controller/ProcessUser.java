@@ -85,6 +85,7 @@ public class ProcessUser extends HttpServlet {
         WelcomeService w=new WelcomeService();
         String greetingText=w.welcomeUser(request.getParameter("name"));
         
+        request.setAttribute("welcomeUser", greetingText);
          RequestDispatcher view =
                 request.getRequestDispatcher(RESULT_PAGE);
         view.forward(request, response);

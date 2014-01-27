@@ -19,21 +19,21 @@ public class WelcomeService {
     
     public String timeFrame(){
         String greeting="";
-        String EARLY="It is early morning";
-        String MORN="It is morning";
-        String AFTERNOON="It is afternoon";
-        String EVEN="It is evening";
-        String NIGHT="It is night";
+        String EARLY="It is early morning.";
+        String MORN="It is morning.";
+        String AFTERNOON="It is afternoon.";
+        String EVEN="It is evening.";
+        String NIGHT="It is night.";
         
-        if(Calendar.HOUR_OF_DAY < 5){
+        if(calendar.HOUR_OF_DAY < 5){
             greeting=EARLY;
-        }else if(Calendar.HOUR_OF_DAY < 12){
+        }else if(calendar.HOUR_OF_DAY < 12){
             greeting=MORN;
-        }else if(Calendar.HOUR_OF_DAY < 17){
+        }else if(calendar.HOUR_OF_DAY < 17){
             greeting=AFTERNOON;
-        }else if(Calendar.HOUR_OF_DAY < 20){
+        }else if(calendar.HOUR_OF_DAY < 20){
             greeting=EVEN;
-        }else if(Calendar.HOUR_OF_DAY < 23){
+        }else if(calendar.HOUR_OF_DAY < 23){
             greeting=NIGHT;
         }
         return greeting;
@@ -41,10 +41,21 @@ public class WelcomeService {
     
     public String welcomeUser(String userName){
         String welcome="Welcome";
-        if(userName==null||userName.isEmpty()){
+        if(userName==null||userName.isEmpty()||isNumeric(userName)){
             userName="Anonymous";
         }
-        welcome+=", " + userName + " " + timeFrame();
+        welcome+=", " + userName + ".  " + timeFrame();
         return welcome;
+    }
+    
+    private boolean isNumeric(String userName){
+        boolean isNumeric=false;
+            try{
+                Double.parseDouble(userName);
+                isNumeric=true;
+            }catch(Exception e){
+                isNumeric=false;
+            }
+        return isNumeric;
     }
 }

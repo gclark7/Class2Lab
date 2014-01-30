@@ -25,15 +25,15 @@ public class WelcomeService {
         String EVEN="It is evening.";
         String NIGHT="It is night.";
         
-        if(calendar.HOUR_OF_DAY < 5){
+        if(calendar.get(Calendar.HOUR_OF_DAY) < 5){
             greeting=EARLY;
-        }else if(calendar.HOUR_OF_DAY < 12){
+        }else if(calendar.get(Calendar.HOUR_OF_DAY) < 12){
             greeting=MORN;
-        }else if(calendar.HOUR_OF_DAY < 17){
+        }else if(calendar.get(Calendar.HOUR_OF_DAY) < 17){
             greeting=AFTERNOON;
-        }else if(calendar.HOUR_OF_DAY < 20){
+        }else if(calendar.get(Calendar.HOUR_OF_DAY) < 20){
             greeting=EVEN;
-        }else if(calendar.HOUR_OF_DAY < 23){
+        }else if(calendar.get(Calendar.HOUR_OF_DAY) < 23){
             greeting=NIGHT;
         }
         return greeting;

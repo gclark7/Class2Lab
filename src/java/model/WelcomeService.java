@@ -15,15 +15,17 @@ import java.util.Calendar;
 public class WelcomeService {
     
     private Calendar calendar = Calendar.getInstance();
-    
+    private final String EARLY="It is early morning.";
+    private final String MORN="It is morning.";
+    private final String AFTERNOON="It is afternoon.";
+    private final String EVEN="It is evening.";
+    private final String NIGHT="It is night.";
+    private final String WELCOME = "Welcome";
+    private final String DEFAULT_NAME="Anonymous";
     
     public String timeFrame(){
         String greeting="";
-        String EARLY="It is early morning.";
-        String MORN="It is morning.";
-        String AFTERNOON="It is afternoon.";
-        String EVEN="It is evening.";
-        String NIGHT="It is night.";
+        
         
         if(calendar.get(Calendar.HOUR_OF_DAY) < 5){
             greeting=EARLY;
@@ -40,9 +42,9 @@ public class WelcomeService {
     }
     
     public String welcomeUser(String userName){
-        String welcome="Welcome";
+        String welcome=WELCOME;
         if(userName==null||userName.isEmpty()||isNumeric(userName)){
-            userName="Anonymous";
+            userName=DEFAULT_NAME;
         }
         welcome+=", " + userName + ".  " + timeFrame();
         return welcome;
